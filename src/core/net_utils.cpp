@@ -15,7 +15,7 @@ String getManufacturer(const String& mac){
   // but it is around 700kb and i don't know a way to get specific part
   // without downloading the whole txt
   HTTPClient http;
-  http.begin("https://api.maclookup.app/v2/macs/" + mac); 
+  http.begin("http://api.maclookup.app/v2/macs/" + mac); // Don't use SSL it will cause memory related error while verifying...
   int httpCode = http.GET();  // Send the request
   if( httpCode != 200 ){ http.end(); return "GET failed"; } 
 
